@@ -37,5 +37,5 @@ func ResponseCreate(body interface{}) HTTPResponse {
 }
 
 func (r *responseCreate) Code() int {
-	return http.StatusOK
+	return http.StatusCreated
 }
