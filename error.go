@@ -5,6 +5,7 @@ import "net/http"
 type ErrorResp interface {
 	Err() error
 	Code() int
+	errPrivate()
 }
 
 type (
@@ -26,6 +27,8 @@ type (
 func (e *errBase) Err() error {
 	return e.error
 }
+
+func (e *errBase) errPrivate() {}
 
 func ErrBadRequest(err error) ErrorResp {
 	return &errBadRequest{errBase{err}}
